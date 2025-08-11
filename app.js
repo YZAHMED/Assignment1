@@ -28,10 +28,7 @@ mongoose.connect(MONGODB_URI, {
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(cors({
-  origin: ['http://localhost:3000'],
-  credentials: true
-}));
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
