@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -26,6 +27,11 @@ mongoose.connect(MONGODB_URI, {
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
+
+app.use(cors({
+  origin: ['http://localhost:3000'],
+  credentials: true
+}));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
