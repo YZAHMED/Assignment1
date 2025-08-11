@@ -1,0 +1,27 @@
+//- Book Form Page
+//- Form to add a new book
+
+doctype html
+html
+  head
+    title Add Book
+    link(rel='stylesheet', href='/styles.css')
+  body
+    h1 Add New Book
+    form(action='/admin/books/add', method='POST')
+      label(for='title') Title:
+      input(type='text', name='title', required)
+      br
+      label(for='author') Author:
+      select(name='author', required)
+        each author in authors
+          option(value=author._id) #{author.name}
+      br
+      label(for='summary') Summary:
+      textarea(name='summary')
+      br
+      label(for='publishedYear') Published Year:
+      input(type='number', name='publishedYear')
+      br
+      button(type='submit') Add Book
+    a(href='/admin/books') Back to Books List 

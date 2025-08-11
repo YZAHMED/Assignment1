@@ -1,0 +1,20 @@
+//- Books List Page
+//- Lists all books and allows deletion
+
+doctype html
+html
+  head
+    title Books
+    link(rel='stylesheet', href='/styles.css')
+  body
+    h1 Books
+    a(href='/admin/books/add') Add New Book
+    ul
+      each book in books
+        li(style='border:1px solid #ccc; margin-bottom:1rem; padding:0.5rem; border-radius:6px;')
+          | #{book.title} by #{book.author ? book.author.name : 'Unknown Author'} (#{book.publishedYear || 'Year N/A'})
+          |  - #{book.summary}
+          a(href=`/admin/books/${book._id}/edit`, style='margin-left:1rem;') Edit
+          form(action=`/admin/books/${book._id}/delete`, method='POST', style='display:inline')
+            button(type='submit') Delete
+    a(href='/admin') Back to Dashboard 

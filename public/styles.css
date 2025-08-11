@@ -1,0 +1,73 @@
+/* Custom styles for the admin dashboard */
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif; /* Custom font */
+  background: #f7f7fa;
+  color: #222;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+h1 {
+  color: #2a4d69; /* Custom blue */
+  margin-top: 1.5rem;
+}
+
+a {
+  color: #4b86b4;
+  text-decoration: none;
+  margin-right: 1rem;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+form {
+  display: inline;
+}
+
+button {
+  background: #63ace5;
+  color: #fff;
+  border: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+button:hover {
+  background: #2a4d69;
+}
+
+input, textarea, select {
+  margin-bottom: 0.5rem;
+  padding: 0.3rem;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  width: 100%;
+  max-width: 350px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 0 0.5rem;
+  }
+  h1 {
+    font-size: 1.3rem;
+  }
+  input, textarea, select {
+    max-width: 100%;
+  }
+} 

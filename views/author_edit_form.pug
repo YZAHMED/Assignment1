@@ -1,0 +1,22 @@
+//- Edit Author Form Page
+//- Form to edit an existing author
+
+doctype html
+html
+  head
+    title Edit Author
+    link(rel='stylesheet', href='/styles.css')
+  body
+    h1 Edit Author
+    form(action=`/admin/authors/${author._id}/edit`, method='POST')
+      label(for='name') Name:
+      input(type='text', name='name', required, value=author.name)
+      br
+      label(for='bio') Bio:
+      textarea(name='bio')= author.bio
+      br
+      label(for='birthdate') Birthdate:
+      input(type='date', name='birthdate', value=author.birthdate ? author.birthdate.toISOString().substring(0,10) : '')
+      br
+      button(type='submit') Save Changes
+    a(href='/admin/authors') Back to Authors List 

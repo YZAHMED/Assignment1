@@ -1,0 +1,27 @@
+//- Edit Book Form Page
+//- Form to edit an existing book
+
+doctype html
+html
+  head
+    title Edit Book
+    link(rel='stylesheet', href='/styles.css')
+  body
+    h1 Edit Book
+    form(action=`/admin/books/${book._id}/edit`, method='POST')
+      label(for='title') Title:
+      input(type='text', name='title', required, value=book.title)
+      br
+      label(for='author') Author:
+      select(name='author', required)
+        each a in authors
+          option(value=a._id, selected=(book.author && book.author.toString() === a._id.toString())) #{a.name}
+      br
+      label(for='summary') Summary:
+      textarea(name='summary')= book.summary
+      br
+      label(for='publishedYear') Published Year:
+      input(type='number', name='publishedYear', value=book.publishedYear)
+      br
+      button(type='submit') Save Changes
+    a(href='/admin/books') Back to Books List 

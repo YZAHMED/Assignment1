@@ -1,0 +1,20 @@
+//- Authors List Page
+//- Lists all authors and allows deletion
+
+doctype html
+html
+  head
+    title Authors
+    link(rel='stylesheet', href='/styles.css')
+  body
+    h1 Authors
+    a(href='/admin/authors/add') Add New Author
+    ul
+      each author in authors
+        li(style='border:1px solid #ccc; margin-bottom:1rem; padding:0.5rem; border-radius:6px;')
+          | #{author.name} (#{author.birthdate ? author.birthdate.toDateString() : 'No birthdate'})
+          |  - #{author.bio}
+          a(href=`/admin/authors/${author._id}/edit`, style='margin-left:1rem;') Edit
+          form(action=`/admin/authors/${author._id}/delete`, method='POST', style='display:inline')
+            button(type='submit') Delete
+    a(href='/admin') Back to Dashboard 

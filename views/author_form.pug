@@ -1,0 +1,22 @@
+//- Author Form Page
+//- Form to add a new author
+
+doctype html
+html
+  head
+    title Add Author
+    link(rel='stylesheet', href='/styles.css')
+  body
+    h1 Add New Author
+    form(action='/admin/authors/add', method='POST')
+      label(for='name') Name:
+      input(type='text', name='name', required)
+      br
+      label(for='bio') Bio:
+      textarea(name='bio')
+      br
+      label(for='birthdate') Birthdate:
+      input(type='date', name='birthdate')
+      br
+      button(type='submit') Add Author
+    a(href='/admin/authors') Back to Authors List 
